@@ -1,0 +1,46 @@
+# Welcome to your prefect.yaml file! You can you this file for storing and managing
+# configuration for deploying your flows. We recommend committing this file to source
+# control along with your flow code.
+
+# Generic metadata about this project
+name: scrape
+prefect-version: 2.11.0
+
+# build section allows you to manage and build docker images
+build: null
+
+# push section allows you to manage if and how this project is uploaded to remote locations
+push: null
+
+# pull section allows you to provide instructions for cloning this project in remote locations
+pull:
+- prefect.deployments.steps.set_working_directory:
+    directory: /Users/jluciano/Dev/demos/scrape
+
+# the deployments section allows you to provide configuration for deploying flows
+deployments:
+- name: dev
+  version: null
+  tags: []
+  description: Scrape Twitter for tweets containing a search term between a start
+    and end date.
+  entrypoint: scrape.py:scrape
+  parameters: {"start_date": "2021-01-01", "end_date": "2021-01-02", "search_term": "covid"}
+  work_pool:
+    name: scrape-dev
+    work_queue_name: null
+    job_variables: {}
+  schedule: null
+
+- name: prod
+  version: null
+  tags: []
+  description: Scrape Twitter for tweets containing a search term between a start
+    and end date.
+  entrypoint: scrape.py:scrape
+  parameters: {"start_date": "2021-01-01", "end_date": "2021-01-02", "search_term": "covid"}
+  work_pool:
+    name: scrape-dev
+    work_queue_name: null
+    job_variables: {}
+  schedule: null

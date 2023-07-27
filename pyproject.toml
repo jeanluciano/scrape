@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "scrape"
+version = "0.1.0"
+description = ""
+authors = ["jeanluciano <jeanluciano@mailbox.org>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+prefect = "^2.11.0"
+marvin = "^1.2.1"
+snscrape = "^0.7.0.20230622"
+pandas = "^2.0.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
