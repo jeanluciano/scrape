@@ -1,5 +1,5 @@
-import snscrape.modules.twitter as sntwitter
-import pandas as pd
+# import snscrape.modules.twitter as sntwitter
+
 from datetime import timedelta
 from prefect import task, flow
 from prefect.tasks import task_input_hash
